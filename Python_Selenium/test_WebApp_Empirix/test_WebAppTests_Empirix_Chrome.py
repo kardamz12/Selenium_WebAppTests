@@ -526,5 +526,150 @@ class TestSuite_Empirix(unittest.TestCase):
             logging.exception(traceback.format_exc())
 
 
+    # @unittest.skip("Skipping English")
+    def test_clientInfo_check_english(self):
+        logging.info("(Chrome)## -- Entering TestCase method 'test_clientInfo_check_english()' -- ##")
+        try:
+            self.Empirix_Login()
+            time.sleep(2)
+
+            logging.info("(Chrome)# --Going to click on Profile dropdown--")
+            profile_dropdown = self.driver.find_element_by_link_text('QA_traininguser25(Empirix_QA_Training)')
+            profile_dropdown.click()
+            time.sleep(5)
+
+            try:
+                logging.info("(Chrome)# --Going to click on English 'Client' from the dropdown menu--")
+                client_eng = self.driver.find_element_by_xpath("//span[text()='Client']")
+                if client_eng:
+                    client_eng.click()
+                    time.sleep(10)
+                    logging.info(
+                        "(Chrome)# --Locating a heading 'Client Details' in English on the page before taking screenshot--")
+                    if self.driver.find_element_by_class_name('panel-title'):
+                        self.driver.save_screenshot(
+                            os.path.join(os.getcwd(), "Images", "client_details_english_chrome.png"))
+                        # self.driver.save_screenshot("client_details_eng.png")
+                        logging.info("(Chrome)Client Details accessed in English and captured an Image of it..")
+                        logging.info("(Chrome)TestCase:: Client Details accessed in 'English' Successfully : PASS")
+            except:
+                logging.exception(
+                    "(Chrome)# --Checking for a Japanese 'Client' from the dropdown menu(inside except)--")
+                client_jap = self.driver.find_element_by_xpath("//span[text()=r'クライアント']")
+                if client_jap:
+                    profile_dropdown.click()
+                    time.sleep(5)
+                    logging.exception("(Chrome)#--Found Japanese, updating language to English")
+                    self.switch_language_toEnglish()
+                    try:
+                        profile_dropdown = self.driver.find_element_by_link_text(
+                            'QA_traininguser25(Empirix_QA_Training)')
+                        if profile_dropdown:
+                            profile_dropdown.click()
+                            time.sleep(3)
+                            logging.exception(
+                                "(Chrome)# --Going to click on English 'Client' from the dropdown menu once language is changed--")
+                            client_eng = self.driver.find_element_by_xpath("//span[text()='Client']")
+                            if client_eng:
+                                client_eng.click()
+                                time.sleep(10)
+                                logging.exception(
+                                    "(Chrome)# --Locating a heading 'Client Details' in English on the page before taking screenshot--")
+                                if self.driver.find_element_by_class_name('panel-title'):
+                                    self.driver.save_screenshot(
+                                        os.path.join(os.getcwd(), "Images", "client_details_english_chrome.png"))
+                                    # self.driver.save_screenshot("client_details_eng.png")
+                                    logging.exception(
+                                        "(Chrome)Client Details accessed in English and captured an Image of it..")
+                                    logging.exception(
+                                        "(Chrome)TestCase:: Client Details accessed in 'English' Successfully : PASS")
+                    except:
+                        logging.exception(
+                            "(Chrome)TestCase:: Client Details accessed in 'English' Successfully(language not changed or Page load issue) : FAIL")
+
+        except Exception as e:
+            logging.exception(
+                "(Chrome)TestCase:: Client Details accessed in 'English' Successfully(inside except) : FAIL")
+            logging.exception("(Chrome)Issue in func test_clientInfo_check_english() - " + str(e))
+            logging.exception(traceback.format_exc())
+
+
+    # @unittest.skip("Skipping japanese")
+    def test_clientInfo_check_japanese(self):
+        logging.info("(Chrome)## -- Entering TestCase method 'test_clientInfo_check_japanese()' -- ##")
+        try:
+            self.Empirix_Login()
+            time.sleep(2)
+
+            logging.info("(Chrome)# --Going to click on Profile dropdown--")
+            profile_dropdown = self.driver.find_element_by_link_text('QA_traininguser25(Empirix_QA_Training)')
+            profile_dropdown.click()
+            time.sleep(3)
+
+            try:
+                logging.info("(Chrome)# --Going to click on Japanese 'Client' from the dropdown menu--")
+                client_jap = self.driver.find_element_by_xpath("//span[text()=r'クライアント']")
+                if client_jap:
+                    client_jap.click()
+                    time.sleep(10)
+                    logging.info(
+                        "(Chrome)# --Locating a heading 'Client Details' in Japanese on the page before taking screenshot--")
+                    if self.driver.find_element_by_class_name('panel-title'):
+                        self.driver.save_screenshot(
+                            os.path.join(os.getcwd(), "Images", "client_details_japanese_chrome.png"))
+                        # self.driver.save_screenshot("client_details_jap.png")
+                        logging.info("(Chrome)Client Details accessed in Japanese and captured an Image of it..")
+                        logging.info("(Chrome)TestCase:: Client Details accessed in 'Japanese' Successfully : PASS")
+            except:
+                logging.exception(
+                    "(Chrome)# --Checking for a English 'Client' from the dropdown menu(inside except)--")
+                client_eng = self.driver.find_element_by_xpath("//span[text()='Client']")
+                if client_eng:
+                    profile_dropdown.click()
+                    time.sleep(3)
+                    logging.exception("(Chrome)#--Found English, updating language to Japanese")
+                    self.switch_language_toJapanese()
+                    try:
+                        profile_dropdown = self.driver.find_element_by_link_text(
+                            'QA_traininguser25(Empirix_QA_Training)')
+                        if profile_dropdown:
+                            profile_dropdown.click()
+                            time.sleep(3)
+                            logging.exception(
+                                "(Chrome)# --Going to click on Japanese 'Client' from the dropdown menu once language is changed--")
+                            client_jap = self.driver.find_element_by_xpath("//span[text()=r'クライアント']")
+                            if client_jap:
+                                client_jap.click()
+                                time.sleep(10)
+                                logging.exception(
+                                    "(Chrome)# --Locating a heading 'Client Details' in Japanese on the page before taking screenshot--")
+                                if self.driver.find_element_by_class_name('panel-title'):
+                                    self.driver.save_screenshot(
+                                        os.path.join(os.getcwd(), "Images", "client_details_japanese_chrome.png"))
+                                    # self.driver.save_screenshot("client_details_jap.png")
+                                    logging.exception(
+                                        "(Chrome)Client Details accessed in Japanese and captured an Image of it..")
+                                    logging.exception(
+                                        "(Chrome)TestCase:: Client Details accessed in 'Japanese' Successfully : PASS")
+                    except:
+                        logging.exception(
+                            "(Chrome)TestCase:: Client Details accessed in 'Japanese' Successfully(language not changed or Page load issue) : FAIL")
+
+        except Exception as e:
+            logging.exception(
+                "(Chrome)TestCase:: Client Details accessed in 'Japanese' Successfully(inside except) : FAIL")
+            logging.exception("(Chrome)Issue in func test_clientInfo_check_japanese() - " + str(e))
+            logging.exception(traceback.format_exc())
+
+
+    def tearDown(self):
+        logging.info("(Chrome)## -- Entering tearDown() method -- ##")
+        try:
+            self.driver.quit()
+        except Exception as e:
+            logging.exception("(Chrome)Issue in func tearDown() - " + str(e))
+            logging.exception(traceback.format_exc())
+
+
 if __name__ == "__main__":
     unittest.main()
