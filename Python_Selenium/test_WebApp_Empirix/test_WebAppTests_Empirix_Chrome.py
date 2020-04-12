@@ -115,7 +115,9 @@ class TestSuite_Empirix(unittest.TestCase):
 
         except Exception as e:
             logging.exception("(Chrome)Issue in func Empirix_Login() - " + str(e))
+            logging.info("(Chrome)TestCase:: Logged into the 'Empirix' Website Successfully : FAIL")
             logging.exception(traceback.format_exc())
+            sys.exit()
 
 
     #@unittest.skip("demonstrating skipping")
@@ -138,6 +140,7 @@ class TestSuite_Empirix(unittest.TestCase):
 
         except Exception as e:
             logging.exception("(Chrome)Issue in func test_Empirix_Login() - " + str(e))
+            logging.info("(Chrome)TestCase:: Logged into the 'Empirix' Website Successfully : FAIL")
             logging.exception(traceback.format_exc())
 
 
@@ -164,7 +167,37 @@ class TestSuite_Empirix(unittest.TestCase):
             time.sleep(30)
         except Exception as e:
             logging.exception("(Chrome)Issue in func switch_language_toEnglish() - " + str(e))
+            logging.exception("(Chrome)TestCase:: Successfully switched to 'English' language(inside except) : FAIL")
             logging.exception(traceback.format_exc())
+            sys.exit()
+
+
+    def switch_language_toJapanese(self):
+        logging.info("(Chrome)## -- Entering 'switch_language_toJapanese()' method -- ##")
+        try:
+            logging.info("(Chrome)#--Going to click on Profile dropdown--")
+            profile_dropdown = self.driver.find_element_by_link_text('QA_traininguser25(Empirix_QA_Training)')
+            profile_dropdown.click()
+            time.sleep(3)
+
+            logging.info("(Chrome)#--Located and going to click on the 'Japanese' button from dropdown--")
+            Japan = self.driver.find_element_by_xpath("//a[text()='Japanese']")
+            Japan.click()
+            logging.info("(Chrome)Clicked Japanese..")
+            time.sleep(5)
+
+            logging.info("(Chrome)#--Switched to popup alert message to accept it--")
+            obj = self.driver.switch_to.alert
+            logging.info("(Chrome)Before clicking Alert")
+            time.sleep(2)
+            obj.accept()
+            logging.info("(Chrome)After clicking Alert")
+            time.sleep(30)
+        except Exception as e:
+            logging.exception("(Chrome)TestCase:: Successfully switched to 'Japanese' language(inside except) : FAIL")
+            logging.exception("(Chrome)Issue in func switch_language_toEnglish() - " + str(e))
+            logging.exception(traceback.format_exc())
+            sys.exit()
 
 
     @unittest.skip("Skipping English")
@@ -191,14 +224,44 @@ class TestSuite_Empirix(unittest.TestCase):
                         if dashboard_eng:
                             logging.exception("(Chrome)TestCase:: Successfully switched to 'English' language : PASS")
                     except:
-                        logging.exception(
-                            "(Chrome)TestCase:: Successfully switched to 'English' language(language not changed or Page load issue) : FAIL")
+                        logging.exception("(Chrome)TestCase:: Successfully switched to 'English' language(language not changed or Page load issue) : FAIL")
 
         except Exception as e:
             logging.exception("(Chrome)TestCase:: Successfully switched to 'English' language(inside except) : FAIL")
             logging.exception("(Chrome)Issue in func switch_language() - " + str(e))
             logging.exception(traceback.format_exc())
 
+
+    @unittest.skip("Skipping English")
+    def test_switch_language_toJapanese(self):
+        logging.info("(Chrome)## -- Entering TestCase method 'test_switch_language_toJapanese()' -- ##")
+        try:
+            self.Empirix_Login()
+            time.sleep(2)
+
+            try:
+                logging.info("(Chrome)#--Trying locating Japanese 'Dashboard' tab on the page--")
+                dashboard_jap = self.driver.find_element_by_xpath("//a[text()='ダッシュボード']")
+                if dashboard_jap:
+                    logging.info("(Chrome)TestCase:: Successfully switched to 'Japanese' language : PASS")
+            except:
+                logging.exception("(Chrome)#--Trying locating English 'Dashboard' tab on the page(inside except)--")
+                dashboard_eng = self.driver.find_element_by_xpath("//a[text()='Dashboard']")
+                if dashboard_eng:
+                    logging.exception("(Chrome)Found English, updating language to Japanese")
+                    self.switch_language_toJapanese()
+                    try:
+                        logging.exception("(Chrome)#-- Again trying locating Japanese 'Dashboard' tab on the page--")
+                        dashboard_jap = self.driver.find_element_by_xpath("//a[text()='ダッシュボード']")
+                        if dashboard_jap:
+                            logging.exception("(Chrome)TestCase:: Successfully switched to 'Japanese' language : PASS")
+                    except:
+                        logging.exception("(Chrome)TestCase:: Successfully switched to 'Japanese' language(language not changed or Page load issue) : FAIL")
+
+        except Exception as e:
+            logging.exception("(Chrome)TestCase:: Successfully switched to 'Japanese' language(inside except) : FAIL")
+            logging.exception("(Chrome)Issue in func switch_language() - " + str(e))
+            logging.exception(traceback.format_exc())
 
 if __name__ == "__main__":
     unittest.main()
