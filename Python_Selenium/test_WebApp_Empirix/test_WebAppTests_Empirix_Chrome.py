@@ -200,7 +200,7 @@ class TestSuite_Empirix(unittest.TestCase):
             sys.exit()
 
 
-    @unittest.skip("Skipping English")
+    #@unittest.skip("Skipping English")
     def test_switch_language_toEnglish(self):
         logging.info("(Chrome)## -- Entering TestCase method 'test_switch_language_toEnglish()' -- ##")
         try:
@@ -232,7 +232,7 @@ class TestSuite_Empirix(unittest.TestCase):
             logging.exception(traceback.format_exc())
 
 
-    @unittest.skip("Skipping English")
+    #@unittest.skip("Skipping English")
     def test_switch_language_toJapanese(self):
         logging.info("(Chrome)## -- Entering TestCase method 'test_switch_language_toJapanese()' -- ##")
         try:
@@ -262,6 +262,269 @@ class TestSuite_Empirix(unittest.TestCase):
             logging.exception("(Chrome)TestCase:: Successfully switched to 'Japanese' language(inside except) : FAIL")
             logging.exception("(Chrome)Issue in func switch_language() - " + str(e))
             logging.exception(traceback.format_exc())
+
+
+    def viewTabs_English(self):
+        logging.info("(Chrome)## -- Entering 'viewTabs_English()' method -- ##")
+        try:
+            logging.info("(Chrome)#--Accessing English Dashboard Tab--")
+
+            logging.info("(Chrome)# --Located and going to click on the Dashboard tab--")
+            self.waitByXpath("//a[text()='Dashboard']")
+            dashboard = self.driver.find_element_by_xpath("//a[text()='Dashboard']")
+            dashboard.click()
+            time.sleep(10)
+
+            logging.info("(Chrome)# --Locating a heading 'Overall Performance' on the page before taking screenshot--")
+            if self.driver.find_element_by_xpath("//div[@class='col-md-3']"):
+                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "dashboard_english_chrome.png"))
+                #self.driver.save_screenshot("dashboard_eng.png")
+                logging.info("(Chrome)English Dashboard accessed and captured an Image of it..")
+
+        except Exception as e:
+            logging.exception("(Chrome)Issue in func test_viewTabs_English(), inside Dashboard Tab - " + str(e))
+            logging.exception(traceback.format_exc())
+
+        try:
+            logging.info("(Chrome)# --Accessing English Alerts Tab--")
+
+            logging.info("(Chrome)# --Located and going to click on the Alerts tab--")
+            time.sleep(3)
+            self.waitByXpath("//a[text()='Alerts']")
+            alerts = self.driver.find_element_by_xpath("//a[text()='Alerts']")
+            alerts.click()
+            time.sleep(10)
+
+            logging.info("(Chrome)# --Locating a heading 'Alert Status' on the page before taking screenshot--")
+            if self.driver.find_element_by_xpath("//th[text()='Alert Status']"):
+                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "alerts_english_chrome.png"))
+                #self.driver.save_screenshot("alerts_eng.png")
+                logging.info("(Chrome)English Alerts accessed and captured an Image of it..")
+
+        except Exception as e:
+            logging.exception("(Chrome)Issue in func test_viewTabs_English(), inside Alerts Tab - " + str(e))
+            logging.exception(traceback.format_exc())
+
+        try:
+            logging.info("(Chrome)# --Accessing English Tests Tab--")
+
+            logging.info("(Chrome)# --Located and going to click on the Tests tab--")
+            time.sleep(3)
+            self.waitByXpath("//a[text()='Tests']")
+            tests = self.driver.find_element_by_xpath("//a[text()='Tests']")
+            tests.click()
+            time.sleep(10)
+
+            logging.info("(Chrome)# --Locating a heading 'Please select a test' on the page before taking screenshot--")
+            if self.driver.find_element_by_xpath("//span[text()='Please select a test']"):
+                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "tests_english_chrome.png"))
+                #self.driver.save_screenshot("tests_eng.png")
+                logging.info("(Chrome)English Tests accessed and captured an Image of it..")
+
+        except Exception as e:
+            logging.exception("(Chrome)Issue in func test_viewTabs_English(), inside Tests Tab - " + str(e))
+            logging.exception(traceback.format_exc())
+
+        try:
+            logging.info("(Chrome)# --Accessing English Variables Tab--")
+
+            logging.info("(Chrome)# --Located and going to click on the Variables tab--")
+            time.sleep(3)
+            self.waitByXpath("//a[text()='Variables']")
+            tests = self.driver.find_element_by_xpath("//a[text()='Variables']")
+            tests.click()
+            time.sleep(10)
+
+            logging.info("(Chrome)# --Locating a heading 'Please select a variable, or the following:' on the page before taking screenshot--")
+            if self.driver.find_element_by_xpath("//div[text()=' Please select a variable, or the following:']"):
+                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "variables_english_chrome.png"))
+                #self.driver.save_screenshot("variables_eng.png")
+                logging.info("(Chrome)English Variables accessed and captured an Image of it..")
+
+        except Exception as e:
+            logging.exception("(Chrome)Issue in func test_viewTabs_English(), inside Variables Tab - " + str(e))
+            logging.exception(traceback.format_exc())
+
+        try:
+            logging.info("(Chrome)# --Accessing English Notifications Tab--")
+
+            logging.info("(Chrome)# --Located and going to click on the Notifications tab--")
+            time.sleep(3)
+            self.waitByXpath("//a[text()='Notifications']")
+            notifications = self.driver.find_element_by_xpath("//a[text()='Notifications']")
+            notifications.click()
+            time.sleep(10)
+
+            logging.info("(Chrome)# --Locating a heading 'Please select a notification' and clicked on 'test' before taking screenshot--")
+            if self.driver.find_element_by_xpath("//span[text()='Please select a notification']"):
+                test = self.driver.find_element_by_class_name("nav.nav-sidebar.tests.ng-binding.ng-scope")
+                if test:
+                    test.click()
+                    time.sleep(10)
+                    self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "notifications_english_chrome.png"))
+                    #self.driver.save_screenshot("notifications_eng.png")
+                    logging.info("(Chrome)English Notifications accessed and captured an Image of it..")
+
+        except Exception as e:
+            logging.exception("(Chrome)Issue in func test_viewTabs_English(), inside Notifications Tab - " + str(e))
+            logging.exception(traceback.format_exc())
+
+
+    def viewTabs_Japanese(self):
+        logging.info("(Chrome)## -- Entering viewTabs_Japanese() method -- ##")
+        try:
+            logging.info("(Chrome)# --Accessing Japanese Dashboard Tab--")
+
+            logging.info("(Chrome)# --Located and going to click on the Dashboard tab--")
+            self.waitByXpath("//a[text()='ダッシュボード']")
+            dashboard = self.driver.find_element_by_xpath("//a[text()='ダッシュボード']")
+            dashboard.click()
+            time.sleep(10)
+
+            logging.info("(Chrome)# --Locating a heading 'Overall Performance' on the page before taking screenshot--")
+            if self.driver.find_element_by_xpath("//div[@class='col-md-3']"):
+                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "dashboard_japanese_chrome.png"))
+                #self.driver.save_screenshot("dashboard_jap.png")
+                logging.info("(Chrome)Japanese Dashboard accessed and captured an Image of it..")
+
+        except Exception as e:
+            logging.exception("(Chrome)Issue in func test_viewTabs_Japanese(), inside Dashboard Tab - " + str(e))
+            logging.exception(traceback.format_exc())
+
+        try:
+            logging.info("(Chrome)# --Accessing Japanese Alerts Tab--")
+
+            logging.info("(Chrome)# --Located and going to click on the Alerts tab--")
+            time.sleep(3)
+            self.waitByXpath("//a[text()='アラート']")
+            alerts = self.driver.find_element_by_xpath("//a[text()='アラート']")
+            alerts.click()
+            time.sleep(10)
+
+            logging.info("(Chrome)# --Locating a heading 'Alert Status' on the page before taking screenshot--")
+            if self.driver.find_element_by_xpath("//th[text()='アラートステータス']"):
+                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "alerts_japanese_chrome.png"))
+                #self.driver.save_screenshot("alerts_jap.png")
+                logging.info("(Chrome)Japanese Alerts accessed and captured an Image of it..")
+
+        except Exception as e:
+            logging.exception("(Chrome)Issue in func test_viewTabs_Japanese(), inside Alerts Tab - " + str(e))
+            logging.exception(traceback.format_exc())
+
+        try:
+            logging.info("(Chrome)# --Accessing Japanese Tests Tab--")
+
+            logging.info("(Chrome)# --Located and going to click on the Tests tab--")
+            time.sleep(3)
+            self.waitByXpath("//a[text()='テスト']")
+            tests = self.driver.find_element_by_xpath("//a[text()='テスト']")
+            tests.click()
+            time.sleep(10)
+
+            logging.info("(Chrome)# --Locating a heading 'Please select a test' on the page before taking screenshot--")
+            if self.driver.find_element_by_xpath("//span[text()='テストを選択してください。']"):
+                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "tests_japanese_chrome.png"))
+                #self.driver.save_screenshot("tests_jap.png")
+                logging.info("(Chrome)Japanese Tests accessed and captured an Image of it..")
+
+        except Exception as e:
+            logging.exception("(Chrome)Issue in func test_viewTabs_Japanese(), inside Tests Tab - " + str(e))
+            logging.exception(traceback.format_exc())
+
+        try:
+            logging.info("(Chrome)# --Accessing Japanese Variables Tab--")
+
+            logging.info("(Chrome)# --Located and going to click on the Variables tab--")
+            time.sleep(3)
+            self.waitByXpath("//a[text()='変数']")
+            tests = self.driver.find_element_by_xpath("//a[text()='変数']")
+            tests.click()
+            time.sleep(10)
+
+            logging.info("(Chrome)# --Locating a heading 'Please select a variable, or the following:' on the page before taking screenshot--")
+            if self.driver.find_element_by_xpath("//div[text()='変数を選択してください。または、以下のように操作してください。']"):
+                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "variables_japanese_chrome.png"))
+                #self.driver.save_screenshot("variables_jap.png")
+                logging.info("(Chrome)Japanese Variables accessed and captured an Image of it..")
+
+        except Exception as e:
+            logging.exception("(Chrome)Issue in func test_viewTabs_Japanese(), inside Variables Tab - " + str(e))
+            logging.exception(traceback.format_exc())
+
+        try:
+            logging.info("(Chrome)# --Accessing Japanese Notifications Tab--")
+
+            logging.info("(Chrome)# --Located and going to click on the Notifications tab--")
+            time.sleep(3)
+            self.waitByXpath("//a[text()='通知']")
+            notifications = self.driver.find_element_by_xpath("//a[text()='通知']")
+            notifications.click()
+            time.sleep(10)
+
+            logging.info("(Chrome)# --Locating a heading 'Please select a notification' and clicked on 'test' before taking screenshot--")
+            if self.driver.find_element_by_xpath("//span[text()='通知を選択してください。']"):
+                test = self.driver.find_element_by_class_name("nav.nav-sidebar.tests.ng-binding.ng-scope")
+                if test:
+                    test.click()
+                    time.sleep(10)
+                    self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "notifications_japanese_chrome.png"))
+                    #self.driver.save_screenshot("notifications_jap.png")
+                    logging.info("(Chrome)Japanese Notifications accessed and captured an Image of it..")
+
+        except Exception as e:
+            logging.exception("(Chrome)Issue in func test_viewTabs_Japanese(), inside Notifications Tab - " + str(e))
+            logging.exception(traceback.format_exc())
+
+
+    #@unittest.skip("Skipping English")
+    def test_viewTabs_English(self):
+        logging.info("(Chrome)## -- Entering TestCase method 'test_viewTabs_English()' -- ##")
+        try:
+            self.Empirix_Login()
+            time.sleep(2)
+
+            try:
+                logging.info("(Chrome)#--Trying to locate English 'Dashboard' tab on the page")
+                dashboard_eng = self.driver.find_element_by_xpath("//a[text()='Dashboard']")
+                if dashboard_eng:
+                    self.viewTabs_English()
+            except:
+                logging.exception("(Chrome)#--Trying to locate Japanese 'Dashboard' tab on the page(inside except)")
+                dashboard_jap = self.driver.find_element_by_xpath("//a[text()='ダッシュボード']")
+                if dashboard_jap:
+                    logging.exception("(Chrome)#--Found Japanese, updating language to English")
+                    self.switch_language_toEnglish()
+                    self.viewTabs_English()
+
+        except Exception as e:
+            logging.exception("(Chrome)Issue in func test_viewTabs_English() - " + str(e))
+            logging.exception(traceback.format_exc())
+
+
+    #@unittest.skip("Skipping japanese")
+    def test_viewTabs_Japanese(self):
+        logging.info("(Chrome)## -- Entering TestCase method 'test_viewTabs_Japanese()' -- ##")
+        try:
+            self.Empirix_Login()
+            time.sleep(2)
+
+            try:
+                logging.info("(Chrome)#--Trying to locate Japanese 'Dashboard' tab on the page")
+                dashboard_jap = self.driver.find_element_by_xpath("//a[text()='ダッシュボード']")
+                if dashboard_jap:
+                    self.viewTabs_Japanese()
+            except:
+                logging.exception("(Chrome)#--Trying to locate English 'Dashboard' tab on the page(inside except)")
+                dashboard_eng = self.driver.find_element_by_xpath("//a[text()='Dashboard']")
+                if dashboard_eng:
+                    logging.exception("(Chrome)#--Found English, updating language to Japanese")
+                    self.switch_language_toJapanese()
+                    self.viewTabs_Japanese()
+
+        except Exception as e:
+            logging.exception("(Chrome)Issue in func viewTabs_Japanese() - " + str(e))
+            logging.exception(traceback.format_exc())
+
 
 if __name__ == "__main__":
     unittest.main()
