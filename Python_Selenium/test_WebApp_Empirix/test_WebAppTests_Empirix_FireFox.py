@@ -15,11 +15,13 @@ logging.basicConfig(format='%(asctime)s %(message)s ',
                     level=logging.INFO, stream=sys.stdout)
 
 
+image_path = "E:\\Pawan\\Selenium\\WebAppTests_Empirix\\Images\\"
+
+
 class TestSuite_Empirix(unittest.TestCase):
     def setUp(self):
         logging.info("(Firefox)## -- Entering 'setUp()' method -- ##")
         try:
-            #self.driver = Firefox(executable_path=os.path.join(os.getcwd(), "drivers", "geckodriver.exe"))
             self.driver = Firefox(executable_path=r'E:\Pawan\Selenium\WebAppTests_Empirix\drivers\geckodriver.exe')
             self.driver.implicitly_wait(30)
             self.driver.maximize_window()
@@ -118,10 +120,9 @@ class TestSuite_Empirix(unittest.TestCase):
             logging.exception("(Firefox)Issue in func Empirix_Login() - " + str(e))
             logging.info("(Firefox)TestCase:: Logged into the 'Empirix' Website Successfully : FAIL")
             logging.exception(traceback.format_exc())
-            sys.exit()
 
 
-    @unittest.skip("demonstrating skipping")
+    #@unittest.skip("demonstrating skipping")
     def test_Empirix_Login(self):
         logging.info("(Firefox)## -- Entering TestCase method 'test_Empirix_Login()' -- ##")
         try:
@@ -170,7 +171,6 @@ class TestSuite_Empirix(unittest.TestCase):
             logging.exception("(Firefox)Issue in func switch_language_toEnglish() - " + str(e))
             logging.exception("(Firefox)TestCase:: Successfully switched to 'English' language(inside except) : FAIL")
             logging.exception(traceback.format_exc())
-            sys.exit()
 
 
     def switch_language_toJapanese(self):
@@ -198,10 +198,9 @@ class TestSuite_Empirix(unittest.TestCase):
             logging.exception("(Firefox)TestCase:: Successfully switched to 'Japanese' language(inside except) : FAIL")
             logging.exception("(Firefox)Issue in func switch_language_toEnglish() - " + str(e))
             logging.exception(traceback.format_exc())
-            sys.exit()
 
 
-    @unittest.skip("Skipping English")
+    #@unittest.skip("Skipping English")
     def test_switch_language_toEnglish(self):
         logging.info("(Firefox)## -- Entering TestCase method 'test_switch_language_toEnglish()' -- ##")
         try:
@@ -214,8 +213,11 @@ class TestSuite_Empirix(unittest.TestCase):
                 if dashboard_eng:
                     logging.info("(Firefox)TestCase:: Successfully switched to 'English' language : PASS")
             except:
+                # var = 'ダッシュボード'
+                # var = ascii(var)
+                # var = '\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9'
                 logging.exception("(Firefox)#--Trying locating Japanese 'Dashboard' tab on the page(inside except)--")
-                dashboard_jap = self.driver.find_element_by_xpath("//a[text()='ダッシュボード'.decode('utf-8')]")
+                dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
                 if dashboard_jap:
                     logging.exception("(Firefox)Found Japanese, updating language to English")
                     self.switch_language_toEnglish()
@@ -233,7 +235,7 @@ class TestSuite_Empirix(unittest.TestCase):
             logging.exception(traceback.format_exc())
 
 
-    @unittest.skip("Skipping English")
+    #@unittest.skip("Skipping English")
     def test_switch_language_toJapanese(self):
         logging.info("(Firefox)## -- Entering TestCase method 'test_switch_language_toJapanese()' -- ##")
         try:
@@ -241,8 +243,11 @@ class TestSuite_Empirix(unittest.TestCase):
             time.sleep(2)
 
             try:
+                # var = 'ダッシュボード'
+                # var = ascii(var)
+                # var = '\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9'
                 logging.info("(Firefox)#--Trying locating Japanese 'Dashboard' tab on the page--")
-                dashboard_jap = self.driver.find_element_by_xpath("//a[text()='ダッシュボード'.decode('utf-8')]")
+                dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
                 if dashboard_jap:
                     logging.info("(Firefox)TestCase:: Successfully switched to 'Japanese' language : PASS")
             except:
@@ -252,8 +257,11 @@ class TestSuite_Empirix(unittest.TestCase):
                     logging.exception("(Firefox)Found English, updating language to Japanese")
                     self.switch_language_toJapanese()
                     try:
+                        # var = 'ダッシュボード'
+                        # var = ascii(var)
+                        # var = '\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9'
                         logging.exception("(Firefox)#-- Again trying locating Japanese 'Dashboard' tab on the page--")
-                        dashboard_jap = self.driver.find_element_by_xpath("//a[text()='ダッシュボード'.decode('utf-8')]")
+                        dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
                         if dashboard_jap:
                             logging.exception("(Firefox)TestCase:: Successfully switched to 'Japanese' language : PASS")
                     except:
@@ -277,8 +285,7 @@ class TestSuite_Empirix(unittest.TestCase):
 
             logging.info("(Firefox)# --Locating a heading 'Overall Performance' on the page before taking screenshot--")
             if self.driver.find_element_by_xpath("//div[@class='col-md-3']"):
-                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "dashboard_english_firefox.png"))
-                #self.driver.save_screenshot("dashboard_eng.png")
+                self.driver.save_screenshot(image_path + "Dashboard_english_firefox.png")
                 logging.info("(Firefox)English Dashboard accessed and captured an Image of it..")
 
         except Exception as e:
@@ -297,8 +304,7 @@ class TestSuite_Empirix(unittest.TestCase):
 
             logging.info("(Firefox)# --Locating a heading 'Alert Status' on the page before taking screenshot--")
             if self.driver.find_element_by_xpath("//th[text()='Alert Status']"):
-                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "alerts_english_firefox.png"))
-                #self.driver.save_screenshot("alerts_eng.png")
+                self.driver.save_screenshot(image_path + "Alerts_english_firefox.png")
                 logging.info("(Firefox)English Alerts accessed and captured an Image of it..")
 
         except Exception as e:
@@ -317,8 +323,7 @@ class TestSuite_Empirix(unittest.TestCase):
 
             logging.info("(Firefox)# --Locating a heading 'Please select a test' on the page before taking screenshot--")
             if self.driver.find_element_by_xpath("//span[text()='Please select a test']"):
-                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "tests_english_firefox.png"))
-                #self.driver.save_screenshot("tests_eng.png")
+                self.driver.save_screenshot(image_path + "Tests_english_firefox.png")
                 logging.info("(Firefox)English Tests accessed and captured an Image of it..")
 
         except Exception as e:
@@ -337,8 +342,7 @@ class TestSuite_Empirix(unittest.TestCase):
 
             logging.info("(Firefox)# --Locating a heading 'Please select a variable, or the following:' on the page before taking screenshot--")
             if self.driver.find_element_by_xpath("//div[text()=' Please select a variable, or the following:']"):
-                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "variables_english_firefox.png"))
-                #self.driver.save_screenshot("variables_eng.png")
+                self.driver.save_screenshot(image_path + "Variables_english_firefox.png")
                 logging.info("(Firefox)English Variables accessed and captured an Image of it..")
 
         except Exception as e:
@@ -361,8 +365,7 @@ class TestSuite_Empirix(unittest.TestCase):
                 if test:
                     test.click()
                     time.sleep(10)
-                    self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "notifications_english_firefox.png"))
-                    #self.driver.save_screenshot("notifications_eng.png")
+                    self.driver.save_screenshot(image_path + "Notifications_english_firefox.png")
                     logging.info("(Firefox)English Notifications accessed and captured an Image of it..")
 
         except Exception as e:
@@ -375,16 +378,18 @@ class TestSuite_Empirix(unittest.TestCase):
         try:
             logging.info("(Firefox)# --Accessing Japanese Dashboard Tab--")
 
+            # var = 'ダッシュボード'
+            # var = ascii(var)
+            # var = '\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9'
             logging.info("(Firefox)# --Located and going to click on the Dashboard tab--")
-            self.waitByXpath("//a[text()='ダッシュボード'.decode('utf-8')]")
-            dashboard = self.driver.find_element_by_xpath("//a[text()='ダッシュボード'.decode('utf-8')]")
+            self.waitByXpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
+            dashboard = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
             dashboard.click()
             time.sleep(10)
 
             logging.info("(Firefox)# --Locating a heading 'Overall Performance' on the page before taking screenshot--")
             if self.driver.find_element_by_xpath("//div[@class='col-md-3']"):
-                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "dashboard_japanese_firefox.png"))
-                #self.driver.save_screenshot("dashboard_jap.png")
+                self.driver.save_screenshot(image_path + "Dashboard_japanese_firefox.png")
                 logging.info("(Firefox)Japanese Dashboard accessed and captured an Image of it..")
 
         except Exception as e:
@@ -394,17 +399,22 @@ class TestSuite_Empirix(unittest.TestCase):
         try:
             logging.info("(Firefox)# --Accessing Japanese Alerts Tab--")
 
+            # var = 'アラート'
+            # var = ascii(var)
+            # var = '\u30a2\u30e9\u30fc\u30c8'
             logging.info("(Firefox)# --Located and going to click on the Alerts tab--")
             time.sleep(3)
-            self.waitByXpath("//a[text()='アラート'.decode('utf-8')]")
-            alerts = self.driver.find_element_by_xpath("//a[text()=r'アラート']")
+            self.waitByXpath("//a[text()='\u30a2\u30e9\u30fc\u30c8']")
+            alerts = self.driver.find_element_by_xpath("//a[text()='\u30a2\u30e9\u30fc\u30c8']")
             alerts.click()
             time.sleep(10)
 
+            # var = 'アラートステータス'
+            # var = ascii(var)
+            # var = '\u30a2\u30e9\u30fc\u30c8\u30b9\u30c6\u30fc\u30bf\u30b9'
             logging.info("(Firefox)# --Locating a heading 'Alert Status' on the page before taking screenshot--")
-            if self.driver.find_element_by_xpath("//th[text()='アラートステータス'.decode('utf-8')]"):
-                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "alerts_japanese_firefox.png"))
-                #self.driver.save_screenshot("alerts_jap.png")
+            if self.driver.find_element_by_xpath("//th[text()='\u30a2\u30e9\u30fc\u30c8\u30b9\u30c6\u30fc\u30bf\u30b9']"):
+                self.driver.save_screenshot(image_path + "Alerts_japanese_firefox.png")
                 logging.info("(Firefox)Japanese Alerts accessed and captured an Image of it..")
 
         except Exception as e:
@@ -416,15 +426,20 @@ class TestSuite_Empirix(unittest.TestCase):
 
             logging.info("(Firefox)# --Located and going to click on the Tests tab--")
             time.sleep(3)
-            self.waitByXpath("//a[text()=r'テスト']")
-            tests = self.driver.find_element_by_xpath("//a[text()='テスト'.decode('utf-8')]")
+            # var = 'テスト'
+            # var = ascii(var)
+            # var = '\u30c6\u30b9\u30c8'
+            self.waitByXpath("//a[text()='\u30c6\u30b9\u30c8']")
+            tests = self.driver.find_element_by_xpath("//a[text()='\u30c6\u30b9\u30c8']")
             tests.click()
             time.sleep(10)
 
+            # var = 'テストを選択してください。'
+            # var = ascii(var)
+            # var = '\u30c6\u30b9\u30c8\u3092\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044\u3002'
             logging.info("(Firefox)# --Locating a heading 'Please select a test' on the page before taking screenshot--")
-            if self.driver.find_element_by_xpath("//span[text()='テストを選択してください。'.decode('utf-8')]"):
-                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "tests_japanese_firefox.png"))
-                #self.driver.save_screenshot("tests_jap.png")
+            if self.driver.find_element_by_xpath("//span[text()='\u30c6\u30b9\u30c8\u3092\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044\u3002']"):
+                self.driver.save_screenshot(image_path + "Tests_japanese_firefox.png")
                 logging.info("(Firefox)Japanese Tests accessed and captured an Image of it..")
 
         except Exception as e:
@@ -434,17 +449,22 @@ class TestSuite_Empirix(unittest.TestCase):
         try:
             logging.info("(Firefox)# --Accessing Japanese Variables Tab--")
 
+            # var = '変数'
+            # var = ascii(var)
+            # var = '\u5909\u6570'
             logging.info("(Firefox)# --Located and going to click on the Variables tab--")
             time.sleep(3)
-            self.waitByXpath("//a[text()='変数'.decode('utf-8')]")
-            tests = self.driver.find_element_by_xpath("//a[text()='変数'.decode('utf-8')]")
+            self.waitByXpath("//a[text()='\u5909\u6570']")
+            tests = self.driver.find_element_by_xpath("//a[text()='\u5909\u6570']")
             tests.click()
             time.sleep(10)
 
+            # var = '変数を選択してください。または、以下のように操作してください。'
+            # var = ascii(var)
+            # var = '\u5909\u6570\u3092\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u307e\u305f\u306f\u3001\u4ee5\u4e0b\u306e\u3088\u3046\u306b\u64cd\u4f5c\u3057\u3066\u304f\u3060\u3055\u3044\u3002'
             logging.info("(Firefox)# --Locating a heading 'Please select a variable, or the following:' on the page before taking screenshot--")
-            if self.driver.find_element_by_xpath("//div[text()='変数を選択してください。または、以下のように操作してください。'.decode('utf-8')]"):
-                self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "variables_japanese_firefox.png"))
-                #self.driver.save_screenshot("variables_jap.png")
+            if self.driver.find_element_by_xpath("//div[text()='\u5909\u6570\u3092\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u307e\u305f\u306f\u3001\u4ee5\u4e0b\u306e\u3088\u3046\u306b\u64cd\u4f5c\u3057\u3066\u304f\u3060\u3055\u3044\u3002']"):
+                self.driver.save_screenshot(image_path + "Variables_japanese_firefox.png")
                 logging.info("(Firefox)Japanese Variables accessed and captured an Image of it..")
 
         except Exception as e:
@@ -454,21 +474,26 @@ class TestSuite_Empirix(unittest.TestCase):
         try:
             logging.info("(Firefox)# --Accessing Japanese Notifications Tab--")
 
+            # var = '通知'
+            # var = ascii(var)
+            # var = '\u901a\u77e5'
             logging.info("(Firefox)# --Located and going to click on the Notifications tab--")
             time.sleep(3)
-            self.waitByXpath("//a[text()='通知'.decode('utf-8')]")
-            notifications = self.driver.find_element_by_xpath("//a[text()='通知'.decode('utf-8')]")
+            self.waitByXpath("//a[text()='\u901a\u77e5']")
+            notifications = self.driver.find_element_by_xpath("//a[text()='\u901a\u77e5']")
             notifications.click()
             time.sleep(10)
 
+            # var = '通知を選択してください。'
+            # var = ascii(var)
+            # var = '\u901a\u77e5\u3092\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044\u3002'
             logging.info("(Firefox)# --Locating a heading 'Please select a notification' and clicked on 'test' before taking screenshot--")
-            if self.driver.find_element_by_xpath("//span[text()='通知を選択してください。'.decode('utf-8')]"):
+            if self.driver.find_element_by_xpath("//span[text()='\u901a\u77e5\u3092\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044\u3002']"):
                 test = self.driver.find_element_by_class_name("nav.nav-sidebar.tests.ng-binding.ng-scope")
                 if test:
                     test.click()
                     time.sleep(10)
-                    self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "notifications_japanese_firefox.png"))
-                    #self.driver.save_screenshot("notifications_jap.png")
+                    self.driver.save_screenshot(image_path + "Notifications_japanese_firefox.png")
                     logging.info("(Firefox)Japanese Notifications accessed and captured an Image of it..")
 
         except Exception as e:
@@ -489,8 +514,11 @@ class TestSuite_Empirix(unittest.TestCase):
                 if dashboard_eng:
                     self.viewTabs_English()
             except:
+                # var = 'ダッシュボード'
+                # var = ascii(var)
+                # var = '\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9'
                 logging.exception("(Firefox)#--Trying to locate Japanese 'Dashboard' tab on the page(inside except)")
-                dashboard_jap = self.driver.find_element_by_xpath("//a[text()='ダッシュボード'.decode('utf-8')]")
+                dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
                 if dashboard_jap:
                     logging.exception("(Firefox)#--Found Japanese, updating language to English")
                     self.switch_language_toEnglish()
@@ -509,8 +537,11 @@ class TestSuite_Empirix(unittest.TestCase):
             time.sleep(2)
 
             try:
+                # var = 'ダッシュボード'
+                # var = ascii(var)
+                # var = '\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9'
                 logging.info("(Firefox)#--Trying to locate Japanese 'Dashboard' tab on the page")
-                dashboard_jap = self.driver.find_element_by_xpath("//a[text()='ダッシュボード'.decode('utf-8')]")
+                dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
                 if dashboard_jap:
                     self.viewTabs_Japanese()
             except:
@@ -526,7 +557,7 @@ class TestSuite_Empirix(unittest.TestCase):
             logging.exception(traceback.format_exc())
 
 
-    @unittest.skip("Skipping English")
+    #@unittest.skip("Skipping English")
     def test_clientInfo_check_english(self):
         logging.info("(Firefox)## -- Entering TestCase method 'test_clientInfo_check_english()' -- ##")
         try:
@@ -546,13 +577,15 @@ class TestSuite_Empirix(unittest.TestCase):
                     time.sleep(10)
                     logging.info("(Firefox)# --Locating a heading 'Client Details' in English on the page before taking screenshot--")
                     if self.driver.find_element_by_class_name('panel-title'):
-                        self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "client_details_english_firefox.png"))
-                        #self.driver.save_screenshot("client_details_eng.png")
+                        self.driver.save_screenshot(image_path + "ClientDetails_english_firefox.png")
                         logging.info("(Firefox)Client Details accessed in English and captured an Image of it..")
                         logging.info("(Firefox)TestCase:: Client Details accessed in 'English' Successfully : PASS")
             except:
+                # var = 'クライアント'
+                # var = ascii(var)
+                # var = '\u30af\u30e9\u30a4\u30a2\u30f3\u30c8'
                 logging.exception("(Firefox)# --Checking for a Japanese 'Client' from the dropdown menu(inside except)--")
-                client_jap = self.driver.find_element_by_xpath("//span[text()=r'クライアント']")
+                client_jap = self.driver.find_element_by_xpath("//span[text()='\u30af\u30e9\u30a4\u30a2\u30f3\u30c8']")
                 if client_jap:
                     profile_dropdown.click()
                     time.sleep(5)
@@ -570,8 +603,7 @@ class TestSuite_Empirix(unittest.TestCase):
                                 time.sleep(10)
                                 logging.exception("(Firefox)# --Locating a heading 'Client Details' in English on the page before taking screenshot--")
                                 if self.driver.find_element_by_class_name('panel-title'):
-                                    self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "client_details_english_firefox.png"))
-                                    #self.driver.save_screenshot("client_details_eng.png")
+                                    self.driver.save_screenshot(image_path + "ClientDetails_english_firefox.png")
                                     logging.exception("(Firefox)Client Details accessed in English and captured an Image of it..")
                                     logging.exception("(Firefox)TestCase:: Client Details accessed in 'English' Successfully : PASS")
                     except:
@@ -583,7 +615,7 @@ class TestSuite_Empirix(unittest.TestCase):
             logging.exception(traceback.format_exc())
 
 
-    @unittest.skip("Skipping japanese")
+    #@unittest.skip("Skipping japanese")
     def test_clientInfo_check_japanese(self):
         logging.info("(Firefox)## -- Entering TestCase method 'test_clientInfo_check_japanese()' -- ##")
         try:
@@ -596,15 +628,17 @@ class TestSuite_Empirix(unittest.TestCase):
             time.sleep(3)
 
             try:
+                # var = 'クライアント'
+                # var = ascii(var)
+                # var = '\u30af\u30e9\u30a4\u30a2\u30f3\u30c8'
                 logging.info("(Firefox)# --Going to click on Japanese 'Client' from the dropdown menu--")
-                client_jap = self.driver.find_element_by_xpath("//span[text()=r'クライアント']")
+                client_jap = self.driver.find_element_by_xpath("//span[text()='\u30af\u30e9\u30a4\u30a2\u30f3\u30c8']")
                 if client_jap:
                     client_jap.click()
                     time.sleep(10)
                     logging.info("(Firefox)# --Locating a heading 'Client Details' in Japanese on the page before taking screenshot--")
                     if self.driver.find_element_by_class_name('panel-title'):
-                        self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "client_details_japanese_firefox.png"))
-                        #self.driver.save_screenshot("client_details_jap.png")
+                        self.driver.save_screenshot(image_path + "ClientDetails_japanese_firefox.png")
                         logging.info("(Firefox)Client Details accessed in Japanese and captured an Image of it..")
                         logging.info("(Firefox)TestCase:: Client Details accessed in 'Japanese' Successfully : PASS")
             except:
@@ -621,14 +655,13 @@ class TestSuite_Empirix(unittest.TestCase):
                             profile_dropdown.click()
                             time.sleep(3)
                             logging.exception("(Firefox)# --Going to click on Japanese 'Client' from the dropdown menu once language is changed--")
-                            client_jap = self.driver.find_element_by_xpath("//span[text()=r'クライアント']")
+                            client_jap = self.driver.find_element_by_xpath("//span[text()='\u30af\u30e9\u30a4\u30a2\u30f3\u30c8']")
                             if client_jap:
                                 client_jap.click()
                                 time.sleep(10)
                                 logging.exception("(Firefox)# --Locating a heading 'Client Details' in Japanese on the page before taking screenshot--")
                                 if self.driver.find_element_by_class_name('panel-title'):
-                                    self.driver.save_screenshot(os.path.join(os.getcwd(), "Images", "client_details_japanese_firefox.png"))
-                                    #self.driver.save_screenshot("client_details_jap.png")
+                                    self.driver.save_screenshot(image_path + "ClientDetails_japanese_firefox.png")
                                     logging.exception("(Firefox)Client Details accessed in Japanese and captured an Image of it..")
                                     logging.exception("(Firefox)TestCase:: Client Details accessed in 'Japanese' Successfully : PASS")
                     except:
@@ -650,6 +683,7 @@ class TestSuite_Empirix(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test_reports'))
-
+    runner = xmlrunner.XMLTestRunner(output='test-reports')
+    unittest.main(testRunner=runner)
+    unittest.main()
 

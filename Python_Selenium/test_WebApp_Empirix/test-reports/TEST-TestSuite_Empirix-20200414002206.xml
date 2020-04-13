@@ -1,0 +1,332 @@
+<?xml version="1.0" ?>
+<testsuite name="TestSuite_Empirix-20200414002206" tests="7" time="1577.134" failures="0" errors="1">
+	<testcase classname="TestSuite_Empirix" name="test_Empirix_Login" time="112.520"/>
+	<testcase classname="TestSuite_Empirix" name="test_clientInfo_check_english" time="169.953"/>
+	<testcase classname="TestSuite_Empirix" name="test_clientInfo_check_japanese" time="170.105"/>
+	<testcase classname="TestSuite_Empirix" name="test_switch_language_toJapanese" time="182.603"/>
+	<testcase classname="TestSuite_Empirix" name="test_viewTabs_English" time="256.809"/>
+	<testcase classname="TestSuite_Empirix" name="test_viewTabs_Japanese" time="256.709"/>
+	<testcase classname="TestSuite_Empirix" name="test_switch_language_toEnglish" time="428.436">
+		<error type="SystemExit" message=""><![CDATA[Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 82, in Empirix_Login
+    self.waitByName('callback_0')
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 36, in waitByName
+    WebDriverWait(self.driver, 100).until(EC.presence_of_element_located((By.NAME, name)))
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 210, in test_switch_language_toEnglish
+    self.Empirix_Login()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 123, in Empirix_Login
+    sys.exit()
+SystemExit
+]]></error>
+	</testcase>
+	<system-out><![CDATA[]]></system-out>
+	<system-err><![CDATA[--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 253, in test_switch_language_toJapanese
+    dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: //a[text()='ダッシュボード']
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1305-1311: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 690, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 257, in test_switch_language_toJapanese
+    logging.exception("(Firefox)#--Trying locating English 'Dashboard' tab on the page(inside except)--")
+Message: "(Firefox)#--Trying locating English 'Dashboard' tab on the page(inside except)--"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 253, in test_switch_language_toJapanese
+    dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: //a[text()='ダッシュボード']
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1278-1284: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 690, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 260, in test_switch_language_toJapanese
+    logging.exception("(Firefox)Found English, updating language to Japanese")
+Message: '(Firefox)Found English, updating language to Japanese'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 253, in test_switch_language_toJapanese
+    dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: //a[text()='ダッシュボード']
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1298-1304: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 690, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 266, in test_switch_language_toJapanese
+    logging.exception("(Firefox)#-- Again trying locating Japanese 'Dashboard' tab on the page--")
+Message: "(Firefox)#-- Again trying locating Japanese 'Dashboard' tab on the page--"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 253, in test_switch_language_toJapanese
+    dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: //a[text()='ダッシュボード']
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1296-1302: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 690, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 269, in test_switch_language_toJapanese
+    logging.exception("(Firefox)TestCase:: Successfully switched to 'Japanese' language : PASS")
+Message: "(Firefox)TestCase:: Successfully switched to 'Japanese' language : PASS"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 547, in test_viewTabs_Japanese
+    dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: //a[text()='ダッシュボード']
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1295-1301: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 690, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 551, in test_viewTabs_Japanese
+    logging.exception("(Firefox)#--Trying to locate English 'Dashboard' tab on the page(inside except)")
+Message: "(Firefox)#--Trying to locate English 'Dashboard' tab on the page(inside except)"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 547, in test_viewTabs_Japanese
+    dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: //a[text()='ダッシュボード']
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1272-1278: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 690, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_FireFox.py", line 554, in test_viewTabs_Japanese
+    logging.exception("(Firefox)#--Found English, updating language to Japanese")
+Message: '(Firefox)#--Found English, updating language to Japanese'
+Arguments: ()
+]]></system-err>
+</testsuite>

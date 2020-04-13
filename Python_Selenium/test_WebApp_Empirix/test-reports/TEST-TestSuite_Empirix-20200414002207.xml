@@ -1,0 +1,542 @@
+<?xml version="1.0" ?>
+<testsuite name="TestSuite_Empirix-20200414002206" tests="7" time="1444.447" failures="0" errors="1">
+	<testcase classname="TestSuite_Empirix" name="test_Empirix_Login" time="130.799"/>
+	<testcase classname="TestSuite_Empirix" name="test_clientInfo_check_english" time="276.962"/>
+	<testcase classname="TestSuite_Empirix" name="test_clientInfo_check_japanese" time="203.991"/>
+	<testcase classname="TestSuite_Empirix" name="test_switch_language_toEnglish" time="218.349"/>
+	<testcase classname="TestSuite_Empirix" name="test_switch_language_toJapanese" time="199.824"/>
+	<testcase classname="TestSuite_Empirix" name="test_viewTabs_English" time="274.103"/>
+	<testcase classname="TestSuite_Empirix" name="test_viewTabs_Japanese" time="140.420">
+		<error type="SystemExit" message=""><![CDATA[Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 82, in Empirix_Login
+    self.waitByName('callback_0')
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 36, in waitByName
+    WebDriverWait(self.driver, 100).until(EC.presence_of_element_located((By.NAME, name)))
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 539, in test_viewTabs_Japanese
+    self.Empirix_Login()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 123, in Empirix_Login
+    sys.exit()
+SystemExit
+]]></error>
+	</testcase>
+	<system-out><![CDATA[]]></system-out>
+	<system-err><![CDATA[--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 638, in test_clientInfo_check_japanese
+    client_jap = self.driver.find_element_by_xpath("//span[text()='\u30af\u30e9\u30a4\u30a2\u30f3\u30c8']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//span[text()='クライアント']"}
+  (Session info: chrome=80.0.3987.163)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1350-1355: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 689, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 648, in test_clientInfo_check_japanese
+    logging.exception("(Chrome)# --Checking for a English 'Client' from the dropdown menu(inside except)--")
+Message: "(Chrome)# --Checking for a English 'Client' from the dropdown menu(inside except)--"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 638, in test_clientInfo_check_japanese
+    client_jap = self.driver.find_element_by_xpath("//span[text()='\u30af\u30e9\u30a4\u30a2\u30f3\u30c8']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//span[text()='クライアント']"}
+  (Session info: chrome=80.0.3987.163)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1322-1327: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 689, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 653, in test_clientInfo_check_japanese
+    logging.exception("(Chrome)#--Found English, updating language to Japanese")
+Message: '(Chrome)#--Found English, updating language to Japanese'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 638, in test_clientInfo_check_japanese
+    client_jap = self.driver.find_element_by_xpath("//span[text()='\u30af\u30e9\u30a4\u30a2\u30f3\u30c8']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//span[text()='クライアント']"}
+  (Session info: chrome=80.0.3987.163)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1364-1369: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 689, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 660, in test_clientInfo_check_japanese
+    logging.exception("(Chrome)# --Going to click on Japanese 'Client' from the dropdown menu once language is changed--")
+Message: "(Chrome)# --Going to click on Japanese 'Client' from the dropdown menu once language is changed--"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 638, in test_clientInfo_check_japanese
+    client_jap = self.driver.find_element_by_xpath("//span[text()='\u30af\u30e9\u30a4\u30a2\u30f3\u30c8']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//span[text()='クライアント']"}
+  (Session info: chrome=80.0.3987.163)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1365-1370: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 689, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 665, in test_clientInfo_check_japanese
+    logging.exception("(Chrome)# --Locating a heading 'Client Details' in Japanese on the page before taking screenshot--")
+Message: "(Chrome)# --Locating a heading 'Client Details' in Japanese on the page before taking screenshot--"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 638, in test_clientInfo_check_japanese
+    client_jap = self.driver.find_element_by_xpath("//span[text()='\u30af\u30e9\u30a4\u30a2\u30f3\u30c8']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//span[text()='クライアント']"}
+  (Session info: chrome=80.0.3987.163)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1340-1345: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 689, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 668, in test_clientInfo_check_japanese
+    logging.exception("(Chrome)Client Details accessed in Japanese and captured an Image of it..")
+Message: '(Chrome)Client Details accessed in Japanese and captured an Image of it..'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 638, in test_clientInfo_check_japanese
+    client_jap = self.driver.find_element_by_xpath("//span[text()='\u30af\u30e9\u30a4\u30a2\u30f3\u30c8']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//span[text()='クライアント']"}
+  (Session info: chrome=80.0.3987.163)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1343-1348: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 689, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 669, in test_clientInfo_check_japanese
+    logging.exception("(Chrome)TestCase:: Client Details accessed in 'Japanese' Successfully : PASS")
+Message: "(Chrome)TestCase:: Client Details accessed in 'Japanese' Successfully : PASS"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 253, in test_switch_language_toJapanese
+    dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='ダッシュボード']"}
+  (Session info: chrome=80.0.3987.163)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1350-1356: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 689, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 257, in test_switch_language_toJapanese
+    logging.exception("(Chrome)#--Trying locating English 'Dashboard' tab on the page(inside except)--")
+Message: "(Chrome)#--Trying locating English 'Dashboard' tab on the page(inside except)--"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 253, in test_switch_language_toJapanese
+    dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='ダッシュボード']"}
+  (Session info: chrome=80.0.3987.163)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1323-1329: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 689, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 260, in test_switch_language_toJapanese
+    logging.exception("(Chrome)Found English, updating language to Japanese")
+Message: '(Chrome)Found English, updating language to Japanese'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 253, in test_switch_language_toJapanese
+    dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='ダッシュボード']"}
+  (Session info: chrome=80.0.3987.163)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1343-1349: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 689, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 266, in test_switch_language_toJapanese
+    logging.exception("(Chrome)#-- Again trying locating Japanese 'Dashboard' tab on the page--")
+Message: "(Chrome)#-- Again trying locating Japanese 'Dashboard' tab on the page--"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 253, in test_switch_language_toJapanese
+    dashboard_jap = self.driver.find_element_by_xpath("//a[text()='\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9']")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='ダッシュボード']"}
+  (Session info: chrome=80.0.3987.163)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\logging\__init__.py", line 1084, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 1341-1347: character maps to <undefined>
+Call stack:
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 689, in <module>
+    unittest.main(testRunner=runner)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\site-packages\xmlrunner\xmlrunner.py", line 416, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 736, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38-32\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "E:\Pawan\Selenium\WebAppTests_Empirix\test_WebAppTests_Empirix_Chrome.py", line 269, in test_switch_language_toJapanese
+    logging.exception("(Chrome)TestCase:: Successfully switched to 'Japanese' language : PASS")
+Message: "(Chrome)TestCase:: Successfully switched to 'Japanese' language : PASS"
+Arguments: ()
+]]></system-err>
+</testsuite>

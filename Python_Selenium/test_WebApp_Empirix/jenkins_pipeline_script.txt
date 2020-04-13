@@ -1,0 +1,21 @@
+node{
+    // **Tests**
+    try{
+        //Browser parallel tests
+        parallel firefox:{
+            node('master') {
+                bat 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe E:\\Pawan\\Selenium\\WebAppTests_Empirix\\test_WebAppTests_Empirix_FireFox.py'
+            }
+        }, chrome:{
+            node('Slave'){
+                bat 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe E:\\Pawan\\Selenium\\WebAppTests_Empirix\\test_WebAppTests_Empirix_Chrome.py'
+            }
+        }, edge:{
+            node('master'){
+                bat 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe E:\\Pawan\\Selenium\\WebAppTests_Empirix\\test_WebAppTests_Empirix_Edge.py'
+            }
+        }
+    }finally{
+        junit 'test-reports/*.xml'
+    }
+} 
